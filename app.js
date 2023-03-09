@@ -9,7 +9,7 @@ const partnersRoutes = require("./src/routes/partners");
 
 const express = require("express");
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.port;
 
 connectDb().catch((e) => console.log(e));
 
