@@ -1,4 +1,5 @@
 const { connectDb } = require("./src/services/mongoose");
+const indexRoutes = require("./src/routes/index");
 const showRoutes = require("./src/routes/show");
 const actionRoutes = require("./src/routes/action");
 const eventRoutes = require("./src/routes/event");
@@ -13,6 +14,7 @@ const port = process.env.port || 3000;
 connectDb().catch((e) => console.log(e));
 
 app.use(express.json());
+app.use("/", indexRoutes);
 app.use("/shows", showRoutes);
 app.use("/actions", actionRoutes);
 app.use("/events", eventRoutes);
