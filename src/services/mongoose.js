@@ -10,7 +10,6 @@ const mongoUrl =
 
 async function connectDb() {
   await mongoose.connect(mongoUrl);
-  console.log(mongoUrl);
   console.log("Db connectée");
 }
 
