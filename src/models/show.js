@@ -4,7 +4,7 @@ const Show = mongoose.model("Show", {
   dates: [String],
   description: String,
   gallery: [String],
-  links: [String],
+  links: [Object],
   title: String,
 });
 
