@@ -3,6 +3,7 @@ const Admin = require("../models/admin");
 const router = new express.Router();
 
 router.post("/create-admin", async (req, res) => {
+  console.log("Create admin");
   const admin = new Admin(req.body);
 
   try {
@@ -15,6 +16,8 @@ router.post("/create-admin", async (req, res) => {
 });
 
 router.post("/admin-login", async (req, res) => {
+  console.log("Admin-login");
+
   try {
     const admin = await Admin.findUser(req.body.email, req.body.password);
     const authToken = await admin.generateAuthTokenAndSaveUser();
@@ -25,6 +28,8 @@ router.post("/admin-login", async (req, res) => {
 });
 
 router.get("/admin", async (req, res) => {
+  console.log("Get admins");
+
   try {
     const admin = await Admin.find({});
     res.send(admin);
@@ -34,6 +39,8 @@ router.get("/admin", async (req, res) => {
 });
 
 router.delete("/delete-admin/:id", async (req, res) => {
+  console.log("Delete admin");
+
   const adminId = req.params.id;
 
   try {

@@ -3,6 +3,7 @@ const Show = require("../models/show");
 const router = new express.Router();
 
 router.post("/create-show", async (req, res) => {
+  console.log("Create show");
   const show = new Show(req.body);
 
   try {
@@ -14,6 +15,8 @@ router.post("/create-show", async (req, res) => {
 });
 
 router.get("/shows", async (req, res) => {
+  console.log("Get all shows");
+
   try {
     const shows = await Show.find({});
     res.send(shows);
@@ -23,6 +26,8 @@ router.get("/shows", async (req, res) => {
 });
 
 router.get("/show/:id", async (req, res) => {
+  console.log("Get one show");
+
   const showId = req.params.id;
 
   try {
@@ -35,6 +40,8 @@ router.get("/show/:id", async (req, res) => {
 });
 
 router.patch("/update-show/:id", async (req, res) => {
+  console.log("Update show");
+
   const showId = req.params.id;
 
   try {
@@ -50,6 +57,8 @@ router.patch("/update-show/:id", async (req, res) => {
 });
 
 router.delete("/delete-show/:id", async (req, res) => {
+  console.log("Delete show");
+
   const showId = req.params.id;
 
   try {

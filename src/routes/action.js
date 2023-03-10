@@ -3,8 +3,9 @@ const Action = require("../models/cultural_actions");
 const router = new express.Router();
 
 router.post("/create-action", async (req, res) => {
+  console.log("Create action");
+
   const action = new Action(req.body);
-  console.log(req.body);
 
   try {
     const saveAction = await action.save();
@@ -16,6 +17,7 @@ router.post("/create-action", async (req, res) => {
 });
 
 router.get("/actions", async (req, res) => {
+  console.log("Get all actions");
   try {
     const actions = await Action.find({});
     res.send(actions);
@@ -25,6 +27,8 @@ router.get("/actions", async (req, res) => {
 });
 
 router.get("/action/:id", async (req, res) => {
+  console.log("Get one action");
+
   const actionId = req.params.id;
 
   try {
@@ -37,6 +41,8 @@ router.get("/action/:id", async (req, res) => {
 });
 
 router.patch("/update-action/:id", async (req, res) => {
+  console.log("Update action");
+
   const actionId = req.params.id;
 
   try {
@@ -52,6 +58,8 @@ router.patch("/update-action/:id", async (req, res) => {
 });
 
 router.delete("/delete-action/:id", async (req, res) => {
+  console.log("Delete action");
+
   const actionId = req.params.id;
 
   try {
