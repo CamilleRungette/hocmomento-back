@@ -3,7 +3,13 @@ const Message = require("../models/message");
 const router = new express.Router();
 
 router.post("/create-message", async (req, res) => {
-  const message = new Message(req.body);
+  const message = new Message({
+    date: new Date(),
+    name: req.body.name,
+    email: req.body.email,
+    content: req.body.message,
+    read: false,
+  });
 
   try {
     const saveMessage = await message.save();
