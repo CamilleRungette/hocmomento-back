@@ -21,7 +21,7 @@ app.use("/shows", showRoutes);
 app.use("/actions", actionRoutes);
 app.use("/events", eventRoutes);
 app.use("/admin", adminRoutes);
-app.use("/message", messageRoutes);
+app.use("/messages", messageRoutes);
 app.use("/partners", partnersRoutes);
 
 app.listen(port, () => {
