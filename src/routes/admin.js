@@ -17,14 +17,11 @@ router.post("/create-admin", async (req, res) => {
 
 router.post("/admin-login", async (req, res) => {
   console.log("Admin-login");
-  console.log(req.body);
 
   try {
-    console.log("here");
     const admin = await Admin.findUser(req.body.email, req.body.password);
     res.send({ success: true, admin });
   } catch (e) {
-    console.log("there");
     res.status(400).send({ sucess: false, error: e });
   }
 });
