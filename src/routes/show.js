@@ -56,6 +56,27 @@ router.patch("/update-show/:id", async (req, res) => {
   }
 });
 
+router.patch("/update-gallery/:id", async (req, res) => {
+  console.log("Update show gallery");
+
+  const showId = req.params.id;
+
+  try {
+    const show = await Show.findByIdAndUpdate(
+      showId,
+      { gallery: req.body.gallery },
+      {
+        new: true,
+      }
+    );
+    if (!show) return res.status(400).send("Show not found");
+
+    res.send(show);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
 router.delete("/delete-show/:id", async (req, res) => {
   console.log("Delete show");
 
