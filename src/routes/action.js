@@ -57,6 +57,27 @@ router.patch("/update-action/:id", async (req, res) => {
   }
 });
 
+router.patch("/update-gallery/:id", async (req, res) => {
+  console.log("Update action gallery");
+
+  const actionId = req.params.id;
+
+  try {
+    const action = await Action.findByIdAndUpdate(
+      actionId,
+      { gallery: req.body.gallery },
+      {
+        new: true,
+      }
+    );
+    if (!action) return res.status(400).send("Action not found");
+
+    res.send(action);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
 router.delete("/delete-action/:id", async (req, res) => {
   console.log("Delete action");
 
