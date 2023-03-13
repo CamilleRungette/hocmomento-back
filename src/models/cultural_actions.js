@@ -8,6 +8,7 @@ const ActionModel = mongoose.model("Action", {
   links: [Object],
   place: String,
   title: String,
+  createdAt: Date,
 });
 
 module.exports = ActionModel;

@@ -6,6 +6,7 @@ const Show = mongoose.model("Show", {
   gallery: [String],
   links: [Object],
   title: String,
+  createdAt: Date,
 });
 
 module.exports = Show;
